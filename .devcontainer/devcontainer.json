@@ -1,0 +1,8 @@
+{
+  "name": "Q-PATH AI",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {"label": "Q-PATH AI", "onAutoForward": "openPreview"}
+  }
+}

@@ -1,0 +1,26 @@
+name: Verify application
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile the application
+        run: python -m py_compile app.py
+      - name: Verify Bell-state simulation
+        run: |
+          python - <<'PY'
+          import app
+          result = app.simulate([
+              {'gate': 'H', 'target': 0},
+              {'gate': 'CX', 'control': 0, 'target': 1},
+          ], 2)
+          assert result['probabilities'] == {'00': 0.5, '11': 0.5}
+          PY
