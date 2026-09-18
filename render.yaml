@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: q-path-ai-sih
+    runtime: python
+    plan: free
+    buildCommand: ""
+    startCommand: "python3 app.py"
+    envVars:
+      - key: QPATH_HOST
+        value: 0.0.0.0
+      - key: PYTHON_VERSION
+        value: 3.11.9

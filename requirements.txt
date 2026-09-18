@@ -1,0 +1,2 @@
+# Q-PATH AI has no third-party Python dependencies.
+# Render uses this file to detect the Python runtime.
